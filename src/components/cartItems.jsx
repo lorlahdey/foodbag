@@ -20,7 +20,7 @@ const CartItems = ({src, itemName, alternatives, price, quantity, handleIncremen
                             </div>
                         </div>
                     </div>
-                    <div className="item-price">{price}</div>
+                    <div className="item-price" >#{price}</div>
                 </div>
     )
 }

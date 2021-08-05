@@ -25,7 +25,7 @@ const ShoppingCart = () => {
     if (quantity <=0) {
         decreaseQuantity = () => setQuantity(1);
     }
-
+    let price = (quantity * 1000) 
 
     return (
         <div className='cart-page'>
@@ -38,8 +38,7 @@ const ShoppingCart = () => {
                     src={image1}
                     alternatives='image1'
                     itemName='KFC - King Bucket'
-                    quantity= '2'
-                    price= '#10,000'
+                    price= {price}
                     handleIncrement= {increaseQuantity}
                     quantity={quantity}
                     handleDecrement= {decreaseQuantity}
@@ -49,16 +48,20 @@ const ShoppingCart = () => {
                     src={image3}
                     alternatives='image3'
                     itemName='Refuel Max'
-                    quantity= '1'
-                    price= '#1,200'
+                    price= {price}
+                    handleIncrement= {increaseQuantity}
+                    quantity={quantity}
+                    handleDecrement= {decreaseQuantity}
                 />
                 <hr />
                 <CartItems 
                     src={image4}
                     alternatives='image4'
                     itemName='Refuel Max'
-                    quantity= '1'
-                    price= '#1,200'
+                    price= {price}
+                    handleIncrement= {increaseQuantity}
+                    quantity={quantity}
+                    handleDecrement= {decreaseQuantity}
                 />
                 <hr />
                 <div className="cart-items">

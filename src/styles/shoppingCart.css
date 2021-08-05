@@ -50,9 +50,9 @@ h1 {
   align-items: center;
 }
 .item-quantity button {
-  /* border: none;
+  border: none;
   outline: none;
-  background-color: #fff; */
+  background-color: #fff;
 }
 .item-quanlity-icon {
   color: #ad4c4c;
