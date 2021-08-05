@@ -1,81 +1,66 @@
 import React from 'react'
+import { useState } from 'react';
 import {  FaRegMinusSquare, FaRegPlusSquare, FaTimes } from 'react-icons/fa'
 import '../styles/shoppingCart.css'
 import image1 from '../images/image1.svg'
-import image2 from '../images/image2.svg'
 import image3 from '../images/image3.svg'
+import image4 from '../images/image4.svg'
 import scooter  from '../images/scooter 1.svg'
+import CartItems from './cartItems'
+
 
 
 
 const ShoppingCart = () => {
+
+    const [quantity, setQuantity] = useState(1);
+
+    const increaseQuantity = () => {
+        setQuantity( quantity + 1);
+    }
+    const decreaseQuantity = () => {
+        setQuantity( quantity + 1);
+    }
+
+    if (quantity <=0) {
+        decreaseQuantity = () => setQuantity(1);
+    }
+
+
     return (
         <div className='cart-page'>
-            <div className='cart-nav'>
-                <p>Home `{'>'}` Cart</p>
-            </div>
+            
 
             <h1>Cart</h1>
             
             <section className='shopping-cart'>
-                <div className="cart-items">
-                    <div className="item-container">
-                        <div className='cancel-item-icon'>
-                            <FaTimes />
-                        </div>
-                        <div className="item-image">
-                            <img src={image1} alt="image1" />
-                        </div>
-                        <div className="item-details">
-                            <p className='itemName'>KFC - King Bucket</p>
-                            <div className='item-quantity'>
-                                <FaRegPlusSquare className='item-quanlity-icon'/> 
-                                2 
-                                <FaRegMinusSquare  className='item-quanlity-icon'/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item-price">#10,000</div>
-                </div>
+                <CartItems 
+                    src={image1}
+                    alternatives='image1'
+                    itemName='KFC - King Bucket'
+                    quantity= '2'
+                    price= '#10,000'
+                    handleIncrement= {increaseQuantity}
+                    quantity={quantity}
+                    handleDecrement= {decreaseQuantity}
+                />
                 <hr />
-                <div className="cart-items">
-                    <div className="item-container">
-                        <div className='cancel-item-icon'>
-                            <FaTimes />
-                        </div>
-                        <div className="item-image">
-                            <img src={image2} alt="image2" />
-                        </div>
-                        <div className="item-details">
-                            <p className='itemName'>Refuel Max</p>
-                            <div className='item-quantity'>
-                                <FaRegPlusSquare className='item-quanlity-icon'/> 
-                                2 
-                                <FaRegMinusSquare  className='item-quanlity-icon'/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item-price">#1,200</div>
-                </div>
-                <div className="cart-items">
-                    <div className="item-container">
-                        <div className='cancel-item-icon'>
-                            <FaTimes />
-                        </div>
-                        <div className="item-image">
-                            <img src={image3} alt="image3" />
-                        </div>
-                        <div className="item-details">
-                            <p className='itemName'>Refuel Max</p>
-                            <div className='item-quantity'>
-                                <FaRegPlusSquare className='item-quanlity-icon'/> 
-                                2 
-                                <FaRegMinusSquare  className='item-quanlity-icon'/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item-price">#1,300</div>
-                </div>
+                <CartItems 
+                    src={image3}
+                    alternatives='image3'
+                    itemName='Refuel Max'
+                    quantity= '1'
+                    price= '#1,200'
+                />
+                <hr />
+                <CartItems 
+                    src={image4}
+                    alternatives='image4'
+                    itemName='Refuel Max'
+                    quantity= '1'
+                    price= '#1,200'
+                />
+                <hr />
                 <div className="cart-items">
                     <div className="delivery-container">
                         <div className="delivery-image">
@@ -85,11 +70,14 @@ const ShoppingCart = () => {
                     </div>
                     <div className="item-price">#1,400</div>
                 </div>
+                <hr />
                 <div className="total-amount">
                     <p>Total</p>
                     <p>#13,600</p>
                 </div>
-                <button className='checkout'>Checkout</button>
+                <div className='checkout'>
+                    <button >Checkout</button>
+                </div>
             </section>
         </div>
     )
