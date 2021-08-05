@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+.foodbag-logo .logo {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+.foodbag-logo span {
+  color: #ad4c4c;
+}
+.navbar .menu {
+  display: inherit;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navbar .link {
+  text-decoration: none;
+  color: #696969;
+  margin: 0 30px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.link.signUp {
+  font-weight: 500;
+  color: #ad4c4c;
+  background: #ffffff;
+  border: 1px solid #ad4c4c;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin-right: 0;
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    margin: 0;
+  }
+  .foodbag-logo .logo {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .navbar .link {
+    margin: 0 12px;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .link.signUp {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 8px 15px;
+    margin-right: 0;
+  }
+}
