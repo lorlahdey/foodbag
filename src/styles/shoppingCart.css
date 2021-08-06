@@ -13,7 +13,6 @@ h1 {
 }
 .item-container {
   display: flex;
-  /* flex-direction: row; */
   justify-content: space-between;
   align-items: center;
 }
@@ -25,14 +24,13 @@ h1 {
 
 .item-image {
   margin-right: 10px;
-  width: 100%;
+  /* width: 100%; */
 }
 .item-image img {
   width: 100%;
   height: auto;
 }
 .item-details {
-  /* margin-top: 10px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,11 +46,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.item-quantity button {
-  border: none;
-  outline: none;
-  background-color: #fff;
 }
 .item-quanlity-icon {
   color: #ad4c4c;
@@ -98,13 +91,16 @@ h1 {
   .item-container {
     justify-content: center;
   }
-  .item-image {
-    width: 40%;
+  .item-container {
+    width: 75%;
+  }
+  /* .item-image {
+    width: 80%;
   }
   .item-image img {
     width: 100%;
     height: auto;
-  }
+  } */
   .item-quanlity-icon {
     font-size: 15px;
   }

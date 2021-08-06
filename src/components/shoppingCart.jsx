@@ -12,25 +12,23 @@ import CartItems from './cartItems'
 
 
 const ShoppingCart = () => {
-
+    
     const [quantity, setQuantity] = useState(1);
 
     const increaseQuantity = () => {
-        setQuantity( quantity + 1);
+        setQuantity(quantity + 1);
     }
-    const decreaseQuantity = () => {
-        setQuantity( quantity + 1);
+    let decreaseQuantity = () => {
+        setQuantity( quantity - 1);
     }
 
     if (quantity <=0) {
         decreaseQuantity = () => setQuantity(1);
     }
-    let price = (quantity * 1000) 
 
     return (
         <div className='cart-page'>
             
-
             <h1>Cart</h1>
             
             <section className='shopping-cart'>
@@ -38,27 +36,27 @@ const ShoppingCart = () => {
                     src={image1}
                     alternatives='image1'
                     itemName='KFC - King Bucket'
-                    price= {price}
                     handleIncrement= {increaseQuantity}
                     quantity={quantity}
                     handleDecrement= {decreaseQuantity}
+                    value='11000'
                 />
                 <hr />
                 <CartItems 
                     src={image3}
                     alternatives='image3'
                     itemName='Refuel Max'
-                    price= {price}
                     handleIncrement= {increaseQuantity}
                     quantity={quantity}
                     handleDecrement= {decreaseQuantity}
+                    value='1200'
                 />
                 <hr />
                 <CartItems 
                     src={image4}
                     alternatives='image4'
                     itemName='Refuel Max'
-                    price= {price}
+                    value='1000'
                     handleIncrement= {increaseQuantity}
                     quantity={quantity}
                     handleDecrement= {decreaseQuantity}
