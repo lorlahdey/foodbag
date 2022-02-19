@@ -7,37 +7,28 @@ import Login from './pages/Login';
 import SignUp from './pages/Sign-up';
 import './styles/main.css'
 
-
 function App() {
-  return (
-    <div className='container'>
-      <BrowserRouter>
-		
-				<Navbar />
-      
-				<Switch>
-					<Route path='/home'>
-						<Home />
-					</Route>
-					<Route path='/cart'>
-						<Cart />
-					</Route>
-          <Route path='/login'>
-						<Login />
-					</Route>
-					<Route path='/sign-up'>
-						<SignUp/>
-					</Route>
-					<Route>
-						<Home />
-					</Route>
-				</Switch>
-			
-		</BrowserRouter>
-    </div>
-
-    
-  );
+	return (
+		<div className='container'>
+			<BrowserRouter>
+					<Navbar />
+					<Switch>
+						<Route exact path='/'>
+							<Home />
+						</Route>
+						<Route path='/cart'>
+							<Cart />
+						</Route>
+						<Route path='/login'>
+							<Login />
+						</Route>
+						<Route path='/sign-up'>
+							<SignUp/>
+						</Route>
+					</Switch>
+			</BrowserRouter>
+		</div>    
+	);
 }
 
 export default App;

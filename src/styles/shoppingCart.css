@@ -1,122 +1,132 @@
 h1 {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 45px;
-  color: #000000;
-  margin: 30px 0;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+    margin: 25px 0;
+}
+.cart-nav {
+    margin-top: 30px;
+    color: #696969;
+    font-size: 16px;
+    line-height: 24px;
+}
+.cart-nav > span {
+    color: #000;
+    font-weight: bold;
 }
 
 .cart-items {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .item-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cancel-item-icon {
-  color: #a5a5a5;
-  margin-right: 12px;
+    color: #a5a5a5;
+    margin-right: 12px;
 }
 
 .item-image {
-  margin-right: 10px;
-  /* width: 100%; */
+    margin-right: 10px;
+    /* width: 100%; */
 }
 .item-image img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 .item-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18vh;
 }
 .item-details p {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #4e4d4d;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4d4d;
 }
 .item-quantity {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .item-quanlity-icon {
-  color: #ad4c4c;
-  font-size: 25px;
+    color: #ad4c4c;
+    font-size: 25px;
 }
 .shopping-cart hr {
-  margin: 20px 0px;
+    margin: 20px 0px;
 }
 .delivery-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 80px;
-  width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 80px;
+    width: 50%;
 }
 .total-amount {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 45px;
-  color: #4e4d4d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+    color: #4e4d4d;
 }
 .checkout button {
-  text-align: center;
-  color: #ad4c4c;
-  width: 80%;
-  margin-top: 35px;
-  margin-left: 50px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #fff;
-  background-color: #ad4c4c;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  padding: 15px 20px;
+    text-align: center;
+    color: #ad4c4c;
+    width: 80%;
+    margin-top: 35px;
+    margin-left: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    background-color: #ad4c4c;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
 }
 
 @media (max-width: 760px) {
-  .item-container {
-    justify-content: center;
-  }
-  .item-container {
-    width: 75%;
-  }
-  /* .item-image {
-    width: 80%;
-  }
-  .item-image img {
-    width: 100%;
-    height: auto;
-  } */
-  .item-quanlity-icon {
-    font-size: 15px;
-  }
-  .item-details {
-    height: 10vh;
-  }
-  .item-details p {
-    font-size: 10px;
-    line-height: 15px;
-  }
-  .total-amount {
-    font-size: 18px;
-    line-height: 27px;
-  }
-  button.checkout {
-    font-size: 16px;
-    line-height: 24px;
-  }
+    .item-container {
+        justify-content: center;
+    }
+    .item-container {
+        width: 75%;
+    }
+    /* .item-image {
+        width: 80%;
+    }
+    .item-image img {
+        width: 100%;
+        height: auto;
+    } */
+    .item-quanlity-icon {
+        font-size: 15px;
+    }
+    .item-details {
+        height: 10vh;
+    }
+    .item-details p {
+        font-size: 10px;
+        line-height: 15px;
+    }
+    .total-amount {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    button.checkout {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }

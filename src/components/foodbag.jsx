@@ -23,8 +23,6 @@ const Foodbag  = () => {
                 <h3>Where are you</h3>
                 <select name="" id="" className='location'>
                     <option value="Bodija">Bodija Market</option>
-                    {/* <option value="Lagelu">Lagelu Market</option>
-                    <option value="Gbagi">Gbagi Market</option> */}
                 </select>
             </section>
             <section className='interest-section'>

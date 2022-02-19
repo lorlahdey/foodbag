@@ -1,67 +1,104 @@
 import React from 'react'
 import { useState } from 'react';
-import {  FaRegMinusSquare, FaRegPlusSquare, FaTimes } from 'react-icons/fa'
+import {  FaRegMinusSquare, FaRegPlusSquare, FaTimes} from 'react-icons/fa'
 import '../styles/shoppingCart.css'
-import image1 from '../images/image1.svg'
-import image3 from '../images/image3.svg'
-import image4 from '../images/image4.svg'
 import scooter  from '../images/scooter 1.svg'
-import CartItems from './cartItems'
 
-
-
+const cartArray = [
+    {
+        id: 1,
+        imageSrc: '../images/image1.svg',
+        itemName: 'KFC - King Bucket',
+        quantity: 1,
+        value: 10000,
+    },
+    {
+        id: 2,
+        imageSrc: '../images/image3.svg',
+        itemName: 'Refuel Max',
+        quantity: 1,
+        value: 1200,
+    },
+    {
+        id: 3,
+        imageSrc: '../images/image4.svg',
+        itemName: 'Refuel Max',
+        quantity: 1,
+        value: 1000,
+    },
+]
 
 const ShoppingCart = () => {
+    const [ cartItems, SetCartItems ] = useState(cartArray)
+    const deleiveryPrice = 1400
+
+    const removeCartItem = (id) => {
+        const newcartItems = cartItems.filter(cartItem => cartItem.id !== id) 
+        SetCartItems(newcartItems)
+    }
+
+    const increaseQuantity = index => {
+        const newCartItems = [...cartItems]
+        newCartItems[index].quantity++
+        SetCartItems(newCartItems)
+    }
     
-    const [quantity, setQuantity] = useState(1);
-
-    const increaseQuantity = () => {
-        setQuantity(quantity + 1);
-    }
-    let decreaseQuantity = () => {
-        setQuantity( quantity - 1);
+    const decreaseQuantity =  (index) => {
+        const newCartItems = [...cartItems]
+        if (newCartItems[index].quantity >= 1)
+            newCartItems[index].quantity--
+            SetCartItems(newCartItems)
     }
 
-    if (quantity <=0) {
-        decreaseQuantity = () => setQuantity(1);
-    }
+    const sumOverallPrice =[]
+    cartItems.map(item => {
+        let overallPrice = item.quantity * item.value
+        sumOverallPrice.push(overallPrice)
+        return sumOverallPrice
+    })
+    const total = sumOverallPrice.reduce((acc, curr) => acc + curr, 0)
 
     return (
         <div className='cart-page'>
-            
+
+            <div className='cart-nav'>Home {'>'} <span> Cart</span> </div> 
             <h1>Cart</h1>
-            
             <section className='shopping-cart'>
-                <CartItems 
-                    src={image1}
-                    alternatives='image1'
-                    itemName='KFC - King Bucket'
-                    handleIncrement= {increaseQuantity}
-                    quantity={quantity}
-                    handleDecrement= {decreaseQuantity}
-                    value='11000'
-                />
-                <hr />
-                <CartItems 
-                    src={image3}
-                    alternatives='image3'
-                    itemName='Refuel Max'
-                    handleIncrement= {increaseQuantity}
-                    quantity={quantity}
-                    handleDecrement= {decreaseQuantity}
-                    value='1200'
-                />
-                <hr />
-                <CartItems 
-                    src={image4}
-                    alternatives='image4'
-                    itemName='Refuel Max'
-                    value='1000'
-                    handleIncrement= {increaseQuantity}
-                    quantity={quantity}
-                    handleDecrement= {decreaseQuantity}
-                />
-                <hr />
+                {
+                    cartItems.map((item, index ) => {
+                        return (
+                            <>
+                                <div className="cart-items" key={item.id}>
+                                    <div className="item-container">
+                                        <div className='cancel-item-icon' onClick={() => removeCartItem(item.id) } >
+                                            <FaTimes />
+                                        </div>
+                                        <div className="item-image">
+                                            <img src={item.imageSrc} alt='itemPicture' />
+                                        </div>
+                                        <div className="item-details">
+                                            <p className='itemName'>{item.itemName}</p>
+                                            <div className='item-quantity'>
+                                                <FaRegPlusSquare 
+                                                    className='item-quanlity-icon'
+                                                    onClick={() => increaseQuantity(index)}
+                                                /> 
+                                                <p> {item.quantity} </p> 
+                                                <FaRegMinusSquare  
+                                                    className='item-quanlity-icon'
+                                                    onClick={(e) => decreaseQuantity(index)}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="item-price" ># {(item.value * item.quantity).toLocaleString()}</div>
+                                </div>
+                                <hr />
+                            </>
+                        )
+                    })
+                }
+
                 <div className="cart-items">
                     <div className="delivery-container">
                         <div className="delivery-image">
@@ -69,12 +106,13 @@ const ShoppingCart = () => {
                         </div>
                         <p className='delivery-detail'>Delivery fee</p>
                     </div>
-                    <div className="item-price">#1,400</div>
+                    <div className="item-price"># {(deleiveryPrice).toLocaleString()}</div>
                 </div>
                 <hr />
+
                 <div className="total-amount">
                     <p>Total</p>
-                    <p>#13,600</p>
+                    <p># {(deleiveryPrice + total).toLocaleString()}</p>
                 </div>
                 <div className='checkout'>
                     <button >Checkout</button>
